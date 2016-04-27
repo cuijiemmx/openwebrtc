@@ -70,19 +70,26 @@ static GList *generate_source_device_list(NSString *mediaType, DeviceMapFunc map
 
 GList *_owr_get_avf_video_sources()
 {
-    GList *list = generate_source_device_list(AVMediaTypeVideo,
-        ^(AVCaptureDevice *av_device, gint index)
-            {
-        OwrLocalMediaSource *source;
-        const gchar *name;
+    // GList *list = generate_source_device_list(AVMediaTypeVideo,
+    //     ^(AVCaptureDevice *av_device, gint index)
+    //         {
+    //     OwrLocalMediaSource *source;
+    //     const gchar *name;
 
-        name = [av_device.localizedName UTF8String];
+    //     name = [av_device.localizedName UTF8String];
 
-        source = _owr_local_media_source_new_cached(index, name,
+    //     source = _owr_local_media_source_new_cached(index, name,
+    //         OWR_MEDIA_TYPE_VIDEO, OWR_SOURCE_TYPE_CAPTURE);
+
+    //     return source;
+    // });
+
+    GList *list = NULL;
+
+    OwrLocalMediaSource *source = _owr_local_media_source_new_cached(0, "DJI Camera",
             OWR_MEDIA_TYPE_VIDEO, OWR_SOURCE_TYPE_CAPTURE);
 
-        return source;
-    });
+    g_list_append(list, source);
 
 #if TARGET_OS_IPHONE
     return g_list_reverse(list);
