@@ -86,7 +86,7 @@ GList *_owr_get_avf_video_sources()
 
     GList *list = NULL;
 
-    OwrLocalMediaSource *source = _owr_local_media_source_new_cached(0, "DJI Camera",
+    OwrLocalMediaSource *source = _owr_local_media_source_new_cached(-1, "DJI Camera",
             OWR_MEDIA_TYPE_VIDEO, OWR_SOURCE_TYPE_CAPTURE);
 
     list = g_list_append(list, source);
