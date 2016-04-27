@@ -89,7 +89,7 @@ GList *_owr_get_avf_video_sources()
     OwrLocalMediaSource *source = _owr_local_media_source_new_cached(0, "DJI Camera",
             OWR_MEDIA_TYPE_VIDEO, OWR_SOURCE_TYPE_CAPTURE);
 
-    g_list_append(list, source);
+    list = g_list_append(list, source);
 
 #if TARGET_OS_IPHONE
     return g_list_reverse(list);
